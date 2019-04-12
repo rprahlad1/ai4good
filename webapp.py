@@ -18,6 +18,7 @@ col = ['ID', 'Birth_Year', 'Gender', 'Skill_1', 'Skill_1_Weight', 'Skill_2', 'Sk
            'Industry', 'Education_Flag', 'Degree_Type', 'Elite_Flag', 'Majors', 'Major_Categories' , 'Unknown1', 'Unknown2']
 df.columns = col
 df['Gender'] = df['Gender'].replace({0:'Unknown', 1:'Female', 2:'Male'})
+
 df['Education'] = df['Education'].replace({0: 'Unknown', 1:'High School', 2:'Vocational Degree', 3:'Associate', 4:'Bachelor', 5:'Masters', 6:'MBA', 7:'PHD/JD/MD'})
 
 app = dash.Dash(__name__)
@@ -58,7 +59,7 @@ def callbackForDropdown(gender):
             title=f'Education Level: {gender}',
             colorway=["#EF963B", "#EF533B"],
             hovermode='closest',
-            xaxis={
+            yaxis={
                 'title': 'Education Level',
                 'titlefont': {
                     'color': 'black',
@@ -69,7 +70,7 @@ def callbackForDropdown(gender):
 
                 }
             },
-            yaxis={
+            xaxis={
                 'title': 'Number of People',
                 'titlefont': {
                     'color': 'black',
